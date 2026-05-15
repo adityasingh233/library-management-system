@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lmscode2.controller.LibrarianDashboardController">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Book Issue Form -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="bookIdInput" promptText="Book ID"/>
+        <TextField fx:id="studentIdInput" promptText="Student ID"/>
+        <TextField fx:id="librarianNameInput" promptText="Issuer (Librarian Name)"/>
+        <Button text="Issue Book" onAction="#handleIssueBook" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+    </HBox>
+    <Label fx:id="statusMessage" text="" />
+
+    <!-- Displays -->
+    <HBox spacing="20">
+        <!-- Available Books -->
+        <VBox>
+            <Label text="Available Books" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="availableBooksTable" prefWidth="350">
+                <columns>
+                    <TableColumn fx:id="colBookId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colTitle" text="Title" prefWidth="150"/>
+                    <TableColumn fx:id="colAuthor" text="Author" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Issued Books -->
+        <VBox>
+            <Label text="Currently Issued Books" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="issuedBooksTable" prefWidth="600">
+                <columns>
+                    <TableColumn fx:id="colTransId" text="Trans ID" prefWidth="60"/>
+                    <TableColumn fx:id="colIssuedTitle" text="Book" prefWidth="120"/>
+                    <TableColumn fx:id="colStudent" text="Student" prefWidth="100"/>
+                    <TableColumn fx:id="colIssuer" text="Issued By" prefWidth="100"/>
+                    <TableColumn fx:id="colIssueTime" text="Issue Date/Time" prefWidth="120"/>
+                    <TableColumn fx:id="colReturnDate" text="Due Date" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>
